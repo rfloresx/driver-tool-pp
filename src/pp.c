@@ -2,6 +2,7 @@
 #include "driver/tool/pp/pp.h"
 
 #include <corto/g/g.h>
+#include <corto/argparse/argparse.h>
 
 /* Copyright (c) 2010-2017 the corto developers
  *
@@ -23,8 +24,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-
-#include "corto/argparse/argparse.h"
 
 static corto_ll silent, mute, attributes, names, prefixes, generators, scopes;
 static corto_ll objects, languages, includes, imports;
@@ -285,7 +284,7 @@ error:
 }
 
 /* Enter package initialization code here */
-int ppMain(int argc, char *argv[]) {
+int cortomain(int argc, char *argv[]) {
     g_generator g;
     corto_string lib, include;
     corto_iter it;
