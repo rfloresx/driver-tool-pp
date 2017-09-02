@@ -42,30 +42,26 @@ corto_int16 cortotool_language(char *language) {
     if (!strcmp(language, "c")) {
         corto_ll_append(generators, "c/project");
         corto_ll_append(generators, "c/type");
-        corto_ll_append(generators, "c/interface");
         corto_ll_append(generators, "c/load");
+        corto_ll_append(generators, "c/interface");
         corto_ll_append(generators, "c/api");
         corto_ll_append(attributes, "c=src");
         corto_ll_append(attributes, "h=include");
     } else if (!strcmp(language, "c4cpp")) {
         corto_ll_append(generators, "c/project");
         corto_ll_append(generators, "c/type");
-        corto_ll_append(generators, "c/interface");
         corto_ll_append(generators, "c/load");
+        corto_ll_append(generators, "c/interface");
         corto_ll_append(generators, "c/api");
         corto_ll_append(attributes, "c=src");
         corto_ll_append(attributes, "cpp=src");
         corto_ll_append(attributes, "h=include");
         corto_ll_append(attributes, "c4cpp=true");
     } else if (!strcmp(language, "cpp") || (!strcmp(language, "c++"))) {
-        if (!prefixes) {
-            prefixes = corto_ll_new();
-        }
-        corto_ll_append(prefixes, "");
+        corto_ll_append(generators, "c/project");
         corto_ll_append(generators, "c/type");
         corto_ll_append(generators, "c/load");
-        corto_ll_append(generators, "c/project");
-        corto_ll_append(generators, "cpp/class");
+        corto_ll_append(generators, "cpp/api");
         corto_ll_append(attributes, "c=src");
         corto_ll_append(attributes, "h=include");
         corto_ll_append(attributes, "cpp=src");
