@@ -94,8 +94,8 @@ corto_int16 cortotool_core(void) {
       "--prefix", "corto",
       "--name", "corto",
       "--scope", "corto/vstore",
-      "--attr", "c=src/core",
-      "--attr", "h=include/core",
+      "--attr", "c=src/vstore",
+      "--attr", "h=include/vstore",
       "--attr", "bootstrap=true",
       "--attr", "stubs=false",
       "-g", "c/interface",
@@ -387,8 +387,7 @@ int cortomain(int argc, char *argv[]) {
         /* If there's a single include file, set an attribute to pass the name
          * of the file to a generator */
         if (corto_ll_size(includes) == 1) {
-            corto_string str;
-            corto_asprintf(&str, "include=%s", corto_ll_get(includes, 0));
+            corto_string str = corto_asprintf("include=%s", corto_ll_get(includes, 0));
             if (!attributes) {
                 attributes = corto_ll_new();
             }
